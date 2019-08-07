@@ -17,10 +17,18 @@ http.createServer(function(req, res){
       res.writeHead(200, {'Content-Type': 'text/css'});
       res.end(data);
     })
-  } else if(req.url === '/js/script.js'){
-    fs.readFile('./public/js/script.js', 'UTF-8', function(err, data){
+  } else if(req.url.match(/.js/)){
+    const jsPath = path.join(__dirname,'public', req.url);
+    fs.readFile(jsPath, 'UTF-8', function(err, data){
       if (err) throw err;
       res.writeHead(200, {'Content-Type': 'text/js'});
+      res.end(data);
+    })
+  } else if (req.url.match(/.jpg/)) {
+    const jpgPath = path.join(__dirname,'public', req.url);
+    fs.readFile(jpgPath, function(err, data){
+      if (err) throw err;
+      res.writeHead(200, {'Content-Type': 'jpg'});
       res.end(data);
     })
   } else {
