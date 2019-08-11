@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/alexsophiekim/node.js-website/issues"
   },
-  "homepage": "https://github.com/alexsophiekim/node.js-website#readme"
+  "homepage": "https://github.com/alexsophiekim/node.js-website#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
 }
